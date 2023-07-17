@@ -118,6 +118,9 @@ nav ul li a:hover::after {
     color: #fff;
 }
 
+.portfolio {
+    margin-top: 50px;
+}
 .descripcion {
     margin-bottom: 15px;
 }
@@ -170,7 +173,7 @@ nav ul li a:hover::after {
 
 /* Servicios */
 #servicios {
-    padding: 30px 0;
+    padding: 90px 0;
 }
 
 .lista-servicios {
@@ -223,7 +226,7 @@ nav ul li a:hover::after {
 /* Portafolio */
 
 #portafolio {
-    padding: 50px 0;
+    padding: 90px 0;
 }
 
 .lista-trabajos {

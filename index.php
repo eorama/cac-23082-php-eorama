@@ -9,6 +9,11 @@ $resultado = $conexion->consultar("SELECT * FROM Usuarios");
 
 // Ahora $resultado contiene los datos de la tabla Usuarios y puedes usarlos en tu página
 ?>
+<?php
+// Obtener los datos de los tres proyectos más recientes desde la base de datos
+$sql = "SELECT id, Titulo, Descripcion, Imagen FROM Proyectos ORDER BY id DESC LIMIT 3";
+$proyectos = $conexion->consultar($sql);
+?>
 <?php include './includes/header.php'; ?>
 
     <div id="heading">
@@ -24,7 +29,7 @@ $resultado = $conexion->consultar("SELECT * FROM Usuarios");
         <div class="container">
             <div class="row">
                 <div class="sobre-mi-col-1">
-                    <img src="../assets/images/user.png" alt="Sobre Mi">
+                    <img src="./assets/images/user.png" alt="Sobre Mi">
                 </div>
                 <div class="sobre-mi-col-2">
                     <h2 class="subtitulo">Sobre Mi</h2>
@@ -114,36 +119,18 @@ $resultado = $conexion->consultar("SELECT * FROM Usuarios");
         <div class="container">
             <h2 class="subtitulo">Mis Trabajos</h2>
             <div class="lista-trabajos">
-                <div class="trabajos">
-                    <img src="./assets/images/work-1.png" alt="">
-                    <div class="capa">
-                        <h3>Social Media App</h3>
-                        <p>The app connects you to the talented people around the world.
-                            Download it from play store
-                        </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="trabajos">
-                    <img src="./assets/images/work-2.png" alt="">
-                    <div class="capa">
-                        <h3>Music App</h3>
-                        <p>The app connects you to the talented people around the world.
-                            Download it from play store
-                        </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
-                <div class="trabajos">
-                    <img src="./assets/images/work-3.png" alt="">
-                    <div class="capa">
-                        <h3>Online Shopping App</h3>
-                        <p>The app connects you to the talented people around the world.
-                            Download it from play store
-                        </p>
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </div>
+                <?php
+                    foreach ($proyectos as $proyecto) {
+                        echo '<div class="trabajos">';
+                        echo '<img src="' . $proyecto['Imagen'] . '" alt="">';
+                        echo '<div class="capa">';
+                        echo '<h3>' . $proyecto['Titulo'] . '</h3>';
+                        echo '<p>' . $proyecto['Descripcion'] . '</p>';
+                        echo '<a href="./paginas/single.php?id=' . $proyecto['id'] . '"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                ?>
             </div>
             <a href="./paginas/portafolio.php" class="btn">Ver más</a>
         </div>
