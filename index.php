@@ -91,7 +91,7 @@ $proyectos = $conexion->consultar($sql);
                         Modi quia rerum beatae deleniti dolor inventore tempora
                         doloremque provident incidunt porro explicabo at culpa
                         quis quisquam error, quibusdam magnam quasi ex.</p>
-                        <a href="#">Conocer más</a>
+                        <a href="./paginas/servicios/diseno-web.php">Conocer más</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-crop-simple"></i>
@@ -100,7 +100,7 @@ $proyectos = $conexion->consultar($sql);
                         Modi quia rerum beatae deleniti dolor inventore tempora
                         doloremque provident incidunt porro explicabo at culpa
                         quis quisquam error, quibusdam magnam quasi ex.</p>
-                        <a href="#">Conocer más</a>
+                        <a href="./paginas/servicios/diseno-uiux.php">Conocer más</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-mobile-button"></i>
@@ -109,7 +109,7 @@ $proyectos = $conexion->consultar($sql);
                         Modi quia rerum beatae deleniti dolor inventore tempora
                         doloremque provident incidunt porro explicabo at culpa
                         quis quisquam error, quibusdam magnam quasi ex.</p>
-                        <a href="#">Conocer más</a>
+                        <a href="./paginas/servicios/desarrollo-apps.php">Conocer más</a>
                 </div>
             </div>
         </div>
