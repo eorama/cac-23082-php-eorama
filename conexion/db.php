@@ -1,16 +1,16 @@
 <?php
+
+require_once('config.php');
+
 class Conexion extends PDO {
     # Atributos que son propios del objeto
-    private $servidor = "localhost";
-    private $usuario = "root_admin";
-    private $pass = "3z*HBg1PiLm*k\$D";
     private $conexion; # Objeto de tipo PDO, de la clase propia de PHP
-    private $base = "portafolio_codo_a_codo";
    
     public function __construct() {
         // Cargar las variables de entorno
+        global $servidor, $usuario, $pass, $base;
         try {
-            parent::__construct("mysql:host=$this->servidor;dbname=$this->base", $this->usuario, $this->pass);
+            parent::__construct("mysql:host=$servidor;dbname=$base", $usuario, $pass);
             # Activamos los errores y las excepciones
             $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {

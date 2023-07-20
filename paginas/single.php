@@ -23,7 +23,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     }
 
     // Realizar una consulta a la base de datos para obtener las tecnologías del proyecto
-    $query_tecnologias = "SELECT Nombre_de_Tecnologia FROM tecnologias WHERE proyecto_id = :id";
+    $query_tecnologias = "SELECT nombre FROM tecnologias WHERE proyecto_id = :id";
     $stmt_tecnologias = $conexion->prepare($query_tecnologias);
     $stmt_tecnologias->bindParam(':id', $id_proyecto);
     $stmt_tecnologias->execute();
@@ -36,34 +36,38 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     exit();
 }
 ?>
-
 <?php include '../includes/header-pages.php'; ?>
 
     <!-- Mostrar la información del proyecto -->
-    <div>
-        <h1><?php echo $proyecto['Titulo']; ?></h1>
-        <img src=".<?php echo $proyecto['Imagen']; ?>" alt="">
-        <p>Descripción: <?php echo $proyecto['Descripcion']; ?></p>
-        <p>Fecha del Proyecto: <?php echo $proyecto['Fecha_del_Proyecto']; ?></p>
-        <p>Nombre del Cliente: <?php echo $proyecto['Nombre_del_Cliente']; ?></p>
-
-        <!-- Mostrar las tecnologías utilizadas en el proyecto -->
-        <h2>Tecnologías utilizadas:</h2>
-        <?php
-        // Realizar una consulta a la base de datos para obtener las tecnologías del proyecto
-        $query_tecnologias = "SELECT Nombre_de_Tecnologia FROM tecnologias WHERE proyecto_id = :id";
-        $stmt_tecnologias = $conexion->prepare($query_tecnologias);
-        $stmt_tecnologias->bindParam(':id', $id_proyecto);
-        $stmt_tecnologias->execute();
-
-        // Obtener todas las tecnologías como un array asociativo
-        $tecnologias = $stmt_tecnologias->fetchAll(PDO::FETCH_COLUMN);
-
-        // Mostrar las tecnologías
-        foreach ($tecnologias as $tecnologia) {
-            echo '<p>' . $tecnologia . '</p>';
-        }
-        ?>
+    <div id="proyecto">
+        <div class="container">
+                <div class="proyectos-single">
+                    <div class="proyecto-col-1">
+                        <h1><?php echo $proyecto['titulo']; ?></h1>
+                        <p>Descripción: <?php echo $proyecto['descripcion']; ?></p>
+                        <p>Fecha del Proyecto: <?php echo $proyecto['fecha']; ?></p>
+                        <p>Nombre del Cliente: <?php echo $proyecto['cliente']; ?></p>
+                        <!-- Mostrar las tecnologías utilizadas en el proyecto -->
+                        <h2 class="test23">Tecnologías utilizadas:</h2>
+                        <?php
+                        // Realizar una consulta a la base de datos para obtener las tecnologías del proyecto
+                        $query_tecnologias = "SELECT nombre FROM tecnologias WHERE proyecto_id = :id";
+                        $stmt_tecnologias = $conexion->prepare($query_tecnologias);
+                        $stmt_tecnologias->bindParam(':id', $id_proyecto);
+                        $stmt_tecnologias->execute();
+                        // Obtener todas las tecnologías como un array asociativo
+                        $tecnologias = $stmt_tecnologias->fetchAll(PDO::FETCH_COLUMN);
+                        // Mostrar las tecnologías
+                        foreach ($tecnologias as $tecnologia) {
+                            echo '<p class="tech-bl">' . $tecnologia . '</p>';
+                        }
+                        ?>
+                    </div>
+                    <div class="proyecto-col-2">
+                        <img src=".<?php echo $proyecto['imagen']; ?>" alt="">
+                    </div>
+                </div>
+        </div>
     </div>
     <div class="volver">
         <a href="./portafolio.php" class="btn">Volver al Portafolio</a>

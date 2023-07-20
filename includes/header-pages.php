@@ -9,7 +9,7 @@ include_once '../conexion/sessions.php';
     <link rel="stylesheet" href="../css/styles.css">
     <script src="https://kit.fontawesome.com/23ab549407.js" crossorigin="anonymous"></script>
     <script src="../js/app.js"></script>
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">    
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">    
     <title>Portafolio | Eliezer Orama</title>
 </head>
 <body>
@@ -22,7 +22,7 @@ include_once '../conexion/sessions.php';
                 <li><a href="../index.php#acerca">Sobre Mi</a></li>
                 <li><a href="../index.php#servicios">Servicios</a></li>
                 <li><a href="../index.php#portafolio">Portafolio</a></li>
-                <li><a href="../index.php#contacto">Contacto</a></li>
+                <li><a href="../index.php#contacto">No Contacto</a></li>
                     <i class="fa-solid fa-square-xmark" onclick="closemenu()"></i>
                 </ul>
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>

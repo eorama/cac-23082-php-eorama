@@ -170,7 +170,14 @@ nav ul li a:hover::after {
 .tab-contenido.tab-activo {
     display: block;
 }
+/* Single Proyectos */
+.test23 {
 
+}
+.tech-bl {
+    background: #ff004f;
+    color: #fff;
+}
 /* Servicios */
 #servicios {
     padding: 90px 0;

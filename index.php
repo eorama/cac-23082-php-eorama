@@ -5,13 +5,13 @@ $conexion = new Conexion();
 
 // Aquí puedes utilizar la conexión y realizar consultas a la base de datos
 // Por ejemplo:
-$resultado = $conexion->consultar("SELECT * FROM Usuarios");
+$resultado = $conexion->consultar("SELECT * FROM usuarios");
 
 // Ahora $resultado contiene los datos de la tabla Usuarios y puedes usarlos en tu página
 ?>
 <?php
 // Obtener los datos de los tres proyectos más recientes desde la base de datos
-$sql = "SELECT id, Titulo, Descripcion, Imagen FROM Proyectos ORDER BY id DESC LIMIT 3";
+$sql = "SELECT id, titulo, descripcion, imagen FROM proyectos ORDER BY id DESC LIMIT 3";
 $proyectos = $conexion->consultar($sql);
 ?>
 <?php include './includes/header.php'; ?>
@@ -87,28 +87,25 @@ $proyectos = $conexion->consultar($sql);
                 <div>
                     <i class="fa-solid fa-code"></i>
                     <h3 class="titulo-h3">Diseño Web</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Modi quia rerum beatae deleniti dolor inventore tempora
-                        doloremque provident incidunt porro explicabo at culpa
-                        quis quisquam error, quibusdam magnam quasi ex.</p>
+                    <p>Sitios web modernos y atractivos que se adaptan a cualquier dispositivo. 
+                        Ofrezco diseños personalizados para tu negocio o proyecto, garantizando 
+                        una experiencia de usuario excepcional.</p>
                         <a href="./paginas/servicios/diseno-web.php">Conocer más</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-crop-simple"></i>
                     <h3 class="titulo-h3">Diseño UI/UX</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Modi quia rerum beatae deleniti dolor inventore tempora
-                        doloremque provident incidunt porro explicabo at culpa
-                        quis quisquam error, quibusdam magnam quasi ex.</p>
+                    <p>Creamos interfaces atractivas y funcionales para tus aplicaciones o sitios web. 
+                        La combinación perfecta entre el diseño y la usabilidad para que tus usuarios 
+                        tengan una experiencia única.</p>
                         <a href="./paginas/servicios/diseno-uiux.php">Conocer más</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-mobile-button"></i>
                     <h3 class="titulo-h3">Desarrollo Apps</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Modi quia rerum beatae deleniti dolor inventore tempora
-                        doloremque provident incidunt porro explicabo at culpa
-                        quis quisquam error, quibusdam magnam quasi ex.</p>
+                    <p>Aplicaciones móviles nativas e híbridas que marcan la diferencia. Diseño y 
+                        desarrollo de apps para iOS y Android con enfoque en la calidad, rendimiento 
+                        y experiencia del usuario.</p>
                         <a href="./paginas/servicios/desarrollo-apps.php">Conocer más</a>
                 </div>
             </div>
@@ -122,10 +119,10 @@ $proyectos = $conexion->consultar($sql);
                 <?php
                     foreach ($proyectos as $proyecto) {
                         echo '<div class="trabajos">';
-                        echo '<img src="' . $proyecto['Imagen'] . '" alt="">';
+                        echo '<img src="' . $proyecto['imagen'] . '" alt="">';
                         echo '<div class="capa">';
-                        echo '<h3>' . $proyecto['Titulo'] . '</h3>';
-                        echo '<p>' . $proyecto['Descripcion'] . '</p>';
+                        echo '<h3>' . $proyecto['titulo'] . '</h3>';
+                        echo '<p>' . $proyecto['descripcion'] . '</p>';
                         echo '<a href="./paginas/single.php?id=' . $proyecto['id'] . '"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>';
                         echo '</div>';
                         echo '</div>';
